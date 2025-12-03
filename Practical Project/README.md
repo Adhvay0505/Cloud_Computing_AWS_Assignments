@@ -15,11 +15,16 @@ A production-ready Network Attached Storage (NAS) built on a Linux VM, featuring
 
 ### Architecture
 
+
+```markdown
+## Architecture
+
 Linux VM (Ubuntu)
-├── k3s Kubernetes
-│   └── Nextcloud Pod (PVC → /srv/nas/data/k8s/nextcloud)
-│   └── Samba (SMB sharing: /srv/nas/data)
-└── Cron → AWS CLI sync (↔ s3://bannerbucket69)
+- **k3s Kubernetes**
+  - Nextcloud Pod (PVC → `/srv/nas/data/k8s/nextcloud`)
+  - Samba (SMB sharing: `/srv/nas/data`)
+- **Cron → AWS CLI sync** (↔ `s3://bannerbucket69`)
+```
 
 ### Quick Demo
 - Mount Samba: sudo mount -t cifs //192.168.122.116/nasdata /mnt/nasdata -o guest
